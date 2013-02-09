@@ -1,0 +1,85 @@
+behave mswin
+filetype on
+filetype plugin on
+set ai
+set backspace=indent,eol,start
+set dir=$temp
+set expandtab
+set foldmethod=marker
+set history=100
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set lines=40 columns=90
+set mouse=a
+set mousemodel=popup
+set nobackup
+set nocompatible
+set nohidden
+set ruler
+set showcmd
+set showmatch
+set smartindent
+set smarttab
+set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
+set sts=4
+set sw=4
+set tw=79
+set vb t_vb=
+set wildmenu
+set wildmode=list:longest,full
+source $VIMRUNTIME/mswin.vim
+syntax enable
+syntax on
+
+if version >= 700
+   set spl=en spell
+   set nospell
+endif
+
+if has('gui_running')
+    set guifont=Fixedsys:h9
+    colorscheme adaryn
+else
+    set guifont=
+    colorscheme default
+endif
+
+if has("autocmd")
+  filetype plugin indent on
+endif
+
+
+" Mappings
+nmap <F2> :w <CR>
+nmap <F3> :q <CR>
+nmap <F4> :sh <CR><CR>
+nmap <F5> :sp <CR>
+nmap <S-F5> :vsp <CR>
+nmap <F6> :close <CR>
+nmap <F7> :tabnew <CR>
+nmap <F9> :make <CR>
+nmap <F10> <C-w>35+
+nmap <S-F10> <C-w>35-
+nmap <F12> :edit . <CR>
+imap <HOME> <C-o>^
+imap <END> <C-o>$
+nmap <INSERT> i
+autocmd BufEnter * lcd %:p:h
+nmap <F13> <C-w>K
+
+
+"-- file settings
+autocmd BufRead,BufNewFile,BufEnter *.py,*.wsgi sou $VIMRUNTIME/syntax/python.vim
+autocmd BufRead,BufNewFile,BufEnter *.c,*.C,*.cpp,*.h sou $VIMRUNTIME/syntax/c.vim
+autocmd BufRead,BufNewFile,BufEnter *.php sou $VIMRUNTIME/syntax/php.vim
+autocmd BufRead,BufNewFile,BufEnter *.pl,*.cgi,*.t sou $VIMRUNTIME/syntax/perl.vim
+autocmd BufRead,BufNewFile,BufEnter *.gs set ft=javascript:browse confirm wa
+
+
+"-- make
+autocmd BufRead,BufNewFile,BufEnter *.xml set makeprg=ant
+autocmd BufRead,BufNewFile,BufEnter *.pl,*.t set makeprg=perl
+autocmd BufRead,BufNewFile,BufEnter *.py set makeprg=python
+autocmd BufRead,BufNewFile,BufEnter *. set makeprg=python
