@@ -75,7 +75,7 @@ autocmd BufRead,BufNewFile,BufEnter *.py,*.wsgi sou $VIMRUNTIME/syntax/python.vi
 autocmd BufRead,BufNewFile,BufEnter *.c,*.C,*.cpp,*.h sou $VIMRUNTIME/syntax/c.vim
 autocmd BufRead,BufNewFile,BufEnter *.php sou $VIMRUNTIME/syntax/php.vim
 autocmd BufRead,BufNewFile,BufEnter *.pl,*.cgi,*.t sou $VIMRUNTIME/syntax/perl.vim
-autocmd BufRead,BufNewFile,BufEnter *.gs set ft=javascript:browse confirm wa
+autocmd BufRead,BufNewFile,BufEnter *.gs sou $VIMRUNTIME/syntax/javascript.vim
 
 
 "-- make
